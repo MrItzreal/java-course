@@ -1,18 +1,15 @@
 public class App {
   public static void main(String[] args) {
-    int x = 123;
-    double y = 3.14;
-    boolean z = true;
-    char symbol = '@';
-    String name = "CallMeIzzy!";
+    String x = "Water";
+    String y = "Kool-Aid";
+    String temp;
 
-    System.out.println("My name is: " + symbol + name);
+    temp = x;
+    x = y;
+    y = temp;
+
+    System.out.println("X: " + x);
+    System.out.println("Y: " + y);
+
   }
 }
-
-/*
- * 3 ways of declaring a variable:
- * 1-) int x; // declaration
- * 2-) x = 123; // assignment
- * 3-) int x = 123; // initialization which combines 1 & 2
- */
