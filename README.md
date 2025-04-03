@@ -85,3 +85,61 @@ After selecting your desired project type, VS Code will typically ask you to:
 
 1.  Specify the location (folder) where the project should be created.
 2.  Provide a name for your project.
+
+## Java Escape Sequences
+
+Escape sequences are used within Java `String` literals to represent special characters. These are needed when a character might be difficult to type directly, conflict with the String syntax (like double quotes), or represent a non-printing control code (like a newline). Escape sequences always start with a backslash (`\`).
+
+Here are some common escape sequences:
+
+- **`\n` - Newline**
+
+  - **Represents:** The newline character.
+  - **Effect:** Moves the output cursor to the beginning of the next line when printed.
+  - **Example:**
+    ```java
+    System.out.print("First Line\nSecond Line");
+    ```
+  - **Output:**
+    ```
+    First Line
+    Second Line
+    ```
+
+- **`\t` - Horizontal Tab**
+
+  - **Represents:** The horizontal tab character.
+  - **Effect:** Inserts a horizontal tab space, often used for basic text alignment in console output. The exact width can vary.
+  - **Example:**
+    ```java
+    System.out.print("Column1\tColumn2");
+    ```
+  - **Output (spacing may vary):**
+    ```
+    Column1   Column2
+    ```
+
+- **`\"` - Literal Double Quote**
+
+  - **Represents:** A literal double quote character (`"`).
+  - **Purpose:** Since double quotes (`"`) are used to define the beginning and end of a `String` literal, this escape sequence is necessary to include an actual double quote character _within_ the string's content.
+  - **Example:**
+    ```java
+    System.out.print("She replied, \"Okay!\"");
+    ```
+  - **Output:**
+    ```
+    She replied, "Okay!"
+    ```
+
+- **`\\` - Literal Backslash**
+  - **Represents:** A literal backslash character (`\`).
+  - **Purpose:** Since the backslash (`\`) is used to _start_ escape sequences, this escape sequence is necessary to include an actual backslash character _within_ the string's content (often needed for file paths on Windows, for example).
+  - **Example:**
+    ```java
+    System.out.print("The file is in C:\\Java\\jdk");
+    ```
+  - **Output:**
+    ```
+    The file is in C:\Java\jdk
+    ```
