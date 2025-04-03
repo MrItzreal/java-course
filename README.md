@@ -143,3 +143,34 @@ Here are some common escape sequences:
     ```
     The file is in C:\Java\jdk
     ```
+
+# Java Data Types
+
+This document provides a summary of primitive and reference data types in Java.
+
+## Primitive Data Types
+
+Primitive types are the most basic data types available within the Java language.
+
+| Data Type | Size    | Value Range / Description                            | Example                   |
+| :-------- | :------ | :--------------------------------------------------- | :------------------------ |
+| `boolean` | 1 bit   | Represents `true` or `false` values.                 | `true`                    |
+| `byte`    | 1 byte  | Integer values from -128 to 127.                     | `100`                     |
+| `short`   | 2 bytes | Integer values from -32,768 to 32,767.               | `30000`                   |
+| `int`     | 4 bytes | Integer values from -2 billion to 2 billion.         | `1234567890`              |
+| `long`    | 8 bytes | Integer values from -9 quintillion to 9 quintillion. | `987654321012345678L`     |
+| `float`   | 4 bytes | Fractional number with 6-7 decimal digits precision. | `3.141592f`               |
+| `double`  | 8 bytes | Fractional number with ~15 decimal digits precision. | `3.141592653589793`       |
+| `char`    | 2 bytes | A single character, letter, or ASCII value.          | `'f'`, `'\u0041'` (`'A'`) |
+
+## Reference Data Types
+
+Reference types refer to objects. The most common one is `String`.
+
+| Data Type | Size   | Description               | Example           |
+| :-------- | :----- | :------------------------ | :---------------- |
+| `String`  | Varies | A sequence of characters. | `"Hello world !"` |
+
+---
+
+_Note: The exact size of reference types like `String` can vary depending on the content and the Java Virtual Machine (JVM) implementation._
