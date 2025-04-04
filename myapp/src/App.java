@@ -1,23 +1,17 @@
-import java.util.Scanner;
-
 public class App {
   public static void main(String[] args) {
 
-    Scanner scanner = new Scanner(System.in);
+    // expression = operands & operators
+    // operands = values, variables, numbers, quantity
+    // operators = +, -, *, /, %
 
-    System.out.println("What is your name? ");
-    String name = scanner.nextLine();
+    int siblings = 10;
+    siblings = siblings / 3;
+    System.out.println(siblings);
 
-    System.out.println("How old are you?");
-    int age = scanner.nextInt();
-
-    scanner.nextLine();
-    System.out.println("What is your favorite food?");
-    String food = scanner.nextLine();
-
-    System.out.println("Hello " + name);
-    System.out.println("You are " + age + " years old");
-    System.out.println("Your favorite food is " + food);
-
+    // For fractionals use 'double'
+    double friends = 10;
+    friends = (double) friends / 3;
+    System.out.println(friends);
   }
 }
