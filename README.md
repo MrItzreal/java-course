@@ -174,3 +174,46 @@ Reference types refer to objects. The most common one is `String`.
 ---
 
 _Note: The exact size of reference types like `String` can vary depending on the content and the Java Virtual Machine (JVM) implementation._
+
+# Understanding Java Scanner for Input
+
+This document explains the basic theory behind using the `Scanner` class in Java for reading user input, the necessity of the `import` statement, and a common pitfall involving `nextInt()` (and similar methods) followed by `nextLine()`.
+
+## Why `import java.util.Scanner;`?
+
+* **Packages:** Java organizes its built-in classes into groups called **packages**. This helps prevent naming conflicts and keeps the codebase organized. The `Scanner` class belongs to the `java.util` package, which contains various utility classes.
+* **Bringing Classes into Scope:** By default, your Java code only knows about classes in the core `java.lang` package (like `String` or `System`) and classes defined in the same file or package.
+* **The `import` Keyword:** The `import` statement tells the Java compiler where to find classes that are not in the default scope. `import java.util.Scanner;` specifically tells the compiler: "If you see the word `Scanner` used in this file, you should understand it refers to the `Scanner` class located inside the `java.util` package."
+
+
+## What is `Scanner`?
+
+* **Purpose:** The `Scanner` class provides convenient methods for reading input data (like numbers, words, or entire lines) from various sources.
+* **Common Source (`System.in`):** The most common use case for beginners is reading input typed by a user into the console (terminal). `System.in` represents the standard input stream, which is typically connected to the keyboard. `new Scanner(System.in)` creates a `Scanner` object ready to read from that keyboard input.
+* **How it Works (Simplified):** A `Scanner` breaks the input stream into chunks called "tokens" using delimiters (by default, whitespace like spaces, tabs, and newlines). Different methods (`nextInt()`, `nextDouble()`, `next()`, `nextLine()`) read these tokens in specific ways.
+
+## The `nextInt()` and `nextLine()` Interaction Trap
+
+This is a very common point of confusion when mixing methods that read specific types (like numbers) with `nextLine()`.
+
+* **`nextInt()` (and similar methods like `nextDouble()`, `nextFloat()`, `nextBoolean()`, `next()`):** These methods read *just enough* characters from the input stream to form the requested data type (e.g., the digits of an integer). They stop reading *immediately after* the token they were looking for. Crucially, they **do not** consume the newline character (`\n`) that is generated when you press the Enter key after typing your input. This newline character remains waiting in the input buffer.
+
+* **`nextLine()`:** This method reads *all* characters from the current position in the input buffer up to and including the **next newline character (`\n`)**. It consumes everything, including the newline.
+
+## Consuming the Leftover Newline
+
+* **The Solution:** To prevent the issue described above, you need to consume the leftover newline character *after* calling `nextInt()` (or `nextDouble()`, etc.) and *before* you call `nextLine()`.
+* **How:** Simply add an extra `scanner.nextLine();` call with no assignment, like this:
+
+    ```java
+    // Assume scanner is already created
+    System.out.println("Enter age:");
+    int age = scanner.nextInt();
+
+    scanner.nextLine(); // <-- This line consumes the leftover newline from the Enter key press after typing the age.
+
+    System.out.println("Enter favorite food:");
+    String food = scanner.nextLine(); // <-- This now correctly waits for the user to type the food.
+    ```
+
+* This extra `nextLine()` call reads the leftover `\n` from the buffer and discards it. The buffer is now empty, so the *subsequent* `nextLine()` call will pause and wait for the user to type their input as expected.
