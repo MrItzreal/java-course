@@ -1,17 +1,14 @@
+import javax.swing.JOptionPane;
+
 public class App {
-  public static void main(String[] args) {
+    public static void main(String[] args) {
+        String name = JOptionPane.showInputDialog("Enter your name");
+        JOptionPane.showMessageDialog(null, "Hello " + name);
 
-    // expression = operands & operators
-    // operands = values, variables, numbers, quantity
-    // operators = +, -, *, /, %
+        int age = Integer.parseInt(JOptionPane.showInputDialog("Enter your age"));
+        JOptionPane.showMessageDialog(null, "You are " + age + " years old");
 
-    int siblings = 10;
-    siblings = siblings / 3;
-    System.out.println(siblings);
-
-    // For fractionals use 'double'
-    double friends = 10;
-    friends = (double) friends / 3;
-    System.out.println(friends);
-  }
+        double height = Double.parseDouble(JOptionPane.showInputDialog("Enter your height"));
+        JOptionPane.showMessageDialog(null, "You are " + height + " cm tall");
+    }
 }

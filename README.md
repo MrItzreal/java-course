@@ -181,39 +181,80 @@ This document explains the basic theory behind using the `Scanner` class in Java
 
 ## Why `import java.util.Scanner;`?
 
-* **Packages:** Java organizes its built-in classes into groups called **packages**. This helps prevent naming conflicts and keeps the codebase organized. The `Scanner` class belongs to the `java.util` package, which contains various utility classes.
-* **Bringing Classes into Scope:** By default, your Java code only knows about classes in the core `java.lang` package (like `String` or `System`) and classes defined in the same file or package.
-* **The `import` Keyword:** The `import` statement tells the Java compiler where to find classes that are not in the default scope. `import java.util.Scanner;` specifically tells the compiler: "If you see the word `Scanner` used in this file, you should understand it refers to the `Scanner` class located inside the `java.util` package."
-
+- **Packages:** Java organizes its built-in classes into groups called **packages**. This helps prevent naming conflicts and keeps the codebase organized. The `Scanner` class belongs to the `java.util` package, which contains various utility classes.
+- **Bringing Classes into Scope:** By default, your Java code only knows about classes in the core `java.lang` package (like `String` or `System`) and classes defined in the same file or package.
+- **The `import` Keyword:** The `import` statement tells the Java compiler where to find classes that are not in the default scope. `import java.util.Scanner;` specifically tells the compiler: "If you see the word `Scanner` used in this file, you should understand it refers to the `Scanner` class located inside the `java.util` package."
 
 ## What is `Scanner`?
 
-* **Purpose:** The `Scanner` class provides convenient methods for reading input data (like numbers, words, or entire lines) from various sources.
-* **Common Source (`System.in`):** The most common use case for beginners is reading input typed by a user into the console (terminal). `System.in` represents the standard input stream, which is typically connected to the keyboard. `new Scanner(System.in)` creates a `Scanner` object ready to read from that keyboard input.
-* **How it Works (Simplified):** A `Scanner` breaks the input stream into chunks called "tokens" using delimiters (by default, whitespace like spaces, tabs, and newlines). Different methods (`nextInt()`, `nextDouble()`, `next()`, `nextLine()`) read these tokens in specific ways.
+- **Purpose:** The `Scanner` class provides convenient methods for reading input data (like numbers, words, or entire lines) from various sources.
+- **Common Source (`System.in`):** The most common use case for beginners is reading input typed by a user into the console (terminal). `System.in` represents the standard input stream, which is typically connected to the keyboard. `new Scanner(System.in)` creates a `Scanner` object ready to read from that keyboard input.
+- **How it Works (Simplified):** A `Scanner` breaks the input stream into chunks called "tokens" using delimiters (by default, whitespace like spaces, tabs, and newlines). Different methods (`nextInt()`, `nextDouble()`, `next()`, `nextLine()`) read these tokens in specific ways.
 
 ## The `nextInt()` and `nextLine()` Interaction Trap
 
 This is a very common point of confusion when mixing methods that read specific types (like numbers) with `nextLine()`.
 
-* **`nextInt()` (and similar methods like `nextDouble()`, `nextFloat()`, `nextBoolean()`, `next()`):** These methods read *just enough* characters from the input stream to form the requested data type (e.g., the digits of an integer). They stop reading *immediately after* the token they were looking for. Crucially, they **do not** consume the newline character (`\n`) that is generated when you press the Enter key after typing your input. This newline character remains waiting in the input buffer.
+- **`nextInt()` (and similar methods like `nextDouble()`, `nextFloat()`, `nextBoolean()`, `next()`):** These methods read _just enough_ characters from the input stream to form the requested data type (e.g., the digits of an integer). They stop reading _immediately after_ the token they were looking for. Crucially, they **do not** consume the newline character (`\n`) that is generated when you press the Enter key after typing your input. This newline character remains waiting in the input buffer.
 
-* **`nextLine()`:** This method reads *all* characters from the current position in the input buffer up to and including the **next newline character (`\n`)**. It consumes everything, including the newline.
+- **`nextLine()`:** This method reads _all_ characters from the current position in the input buffer up to and including the **next newline character (`\n`)**. It consumes everything, including the newline.
 
 ## Consuming the Leftover Newline
 
-* **The Solution:** To prevent the issue described above, you need to consume the leftover newline character *after* calling `nextInt()` (or `nextDouble()`, etc.) and *before* you call `nextLine()`.
-* **How:** Simply add an extra `scanner.nextLine();` call with no assignment, like this:
+- **The Solution:** To prevent the issue described above, you need to consume the leftover newline character _after_ calling `nextInt()` (or `nextDouble()`, etc.) and _before_ you call `nextLine()`.
+- **How:** Simply add an extra `scanner.nextLine();` call with no assignment, like this:
 
-    ```java
-    // Assume scanner is already created
-    System.out.println("Enter age:");
-    int age = scanner.nextInt();
+  ```java
+  // Assume scanner is already created
+  System.out.println("Enter age:");
+  int age = scanner.nextInt();
 
-    scanner.nextLine(); // <-- This line consumes the leftover newline from the Enter key press after typing the age.
+  scanner.nextLine(); // <-- This line consumes the leftover newline from the Enter key press after typing the age.
 
-    System.out.println("Enter favorite food:");
-    String food = scanner.nextLine(); // <-- This now correctly waits for the user to type the food.
-    ```
+  System.out.println("Enter favorite food:");
+  String food = scanner.nextLine(); // <-- This now correctly waits for the user to type the food.
+  ```
 
-* This extra `nextLine()` call reads the leftover `\n` from the buffer and discards it. The buffer is now empty, so the *subsequent* `nextLine()` call will pause and wait for the user to type their input as expected.
+- This extra `nextLine()` call reads the leftover `\n` from the buffer and discards it. The buffer is now empty, so the _subsequent_ `nextLine()` call will pause and wait for the user to type their input as expected.
+
+# Java GUI Intro
+
+This document summarizes the use of `javax.swing.JOptionPane` to create simple Graphical User Interface (GUI) interactions in Java, such as pop-up dialog boxes for input and output. This provides an alternative to console-based interactions (like using `Scanner`).
+
+## Swing and `JOptionPane`
+
+- **Swing:** A built-in Java library used for creating GUIs. It provides various components like windows, buttons, labels, text fields, etc.
+- **`JOptionPane`:** A specific class within the Swing library (`javax.swing` package) designed to make creating standard, simple dialog boxes very easy. It's great for quickly getting user input or displaying messages without building a full complex window.
+
+## Importing `JOptionPane`
+
+- Just like other classes in external packages, you need to make `JOptionPane` available to your code.
+- This is done using the import statement at the top of your Java file:
+  `import javax.swing.JOptionPane;`
+- This tells the compiler where to find the `JOptionPane` class when you use it in your code.
+
+## Getting Input: `JOptionPane.showInputDialog()`
+
+- **Function:** This static method displays a pop-up window prompting the user for input.
+- **Appearance:** Typically shows a message (your question), a text field for typing, and "OK" / "Cancel" buttons.
+- **Return Value:** Critically, `showInputDialog()` **always returns the user's input as a `String`**, regardless of whether they typed text, numbers, or symbols. If the user clicks "Cancel" or closes the dialog, it returns `null`.
+
+## Displaying Messages: `JOptionPane.showMessageDialog()`
+
+- **Function:** This static method displays a simple pop-up window showing a message to the user.
+- **Parameters:**
+  - The first argument is typically `null` for simple messages. This indicates the dialog has no parent window, causing it to usually appear centered on the screen.
+  - The second argument is the `String` containing the message you want to display.
+
+## Handling Numerical Input: Parsing Strings
+
+- **The Challenge:** Since `showInputDialog()` returns a `String`, you cannot directly store its result in a numerical variable like `int` or `double`.
+- **The Solution (Parsing):** You need to convert (parse) the `String` into the desired numerical type using methods from Java's wrapper classes:
+  - `Integer.parseInt(String)`: Converts a `String` containing digits into an `int`.
+  - `Double.parseDouble(String)`: Converts a `String` containing a valid decimal representation into a `double`.
+  - Similar methods exist for other numerical types (e.g., `Float.parseFloat()`).
+- **Error Potential:** If the user types non-numeric text (e.g., "abc") when you expect a number, calling `parseInt` or `parseDouble` will cause a runtime error (an Exception). Handling these errors gracefully requires more advanced techniques (like try-catch blocks).
+
+## Summary
+
+`JOptionPane` provides a straightforward way to add basic graphical input and output to Java applications, moving beyond the limitations of the text-based console. The key things to remember are that input is always received as a `String` and numerical input requires explicit parsing.
