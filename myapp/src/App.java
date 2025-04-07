@@ -1,14 +1,34 @@
-import javax.swing.JOptionPane;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        String name = JOptionPane.showInputDialog("Enter your name");
-        JOptionPane.showMessageDialog(null, "Hello " + name);
+        double x;
+        double y;
+        double z;
 
-        int age = Integer.parseInt(JOptionPane.showInputDialog("Enter your age"));
-        JOptionPane.showMessageDialog(null, "You are " + age + " years old");
+        Scanner scanner = new Scanner(System.in);
 
-        double height = Double.parseDouble(JOptionPane.showInputDialog("Enter your height"));
-        JOptionPane.showMessageDialog(null, "You are " + height + " cm tall");
+        System.out.println("Enter side x: ");
+        x = scanner.nextDouble();
+
+        System.out.println("Enter side y: ");
+        y = scanner.nextDouble();
+
+        z = Math.sqrt((x * x) + (y * y));
+        System.out.println("The hypotenuse is: " + z);
+
+        // It's good practice to close your scanner:
+        scanner.close();
     }
 }
+
+/*
+ * "Math." use cases:
+ * double z = Math.max(x, y); = max value.
+ * double z = Math.min(x, y); = min value.
+ * double z = Math.abs(y); = absolute value.
+ * double z = Math.sqrt(y); = square root of value.
+ * double z = Math.round(x); = rounds value.
+ * double z = Math.ceil(x); = rounds up value.
+ * double z = Math.floor(x); = rounds down value.
+ */
