@@ -1,21 +1,17 @@
-import java.util.Random;
-
 public class App {
     public static void main(String[] args) {
-        Random random = new Random();
 
-        int x = random.nextInt(6) + 1;
-        System.out.println(x);
+        // Initial value
+        int benchPress = 179;
 
-        double y = random.nextDouble();
-        System.out.println(y);
-
-        boolean z = random.nextBoolean();
-        System.out.println(z);
+        if (benchPress == 250) {
+            System.out.println("You are a strong fella!");
+        } else if (benchPress >= 180) {
+            System.out.println("You are almost there!");
+        } else if (benchPress <= 100) {
+            System.out.println("You need to get stronger!");
+        } else {
+            System.out.println("You need to press at least 250!");
+        }
     }
 }
-
-/*
- * Since numbers start at 0 we add +1,
- * so we can get a random # from 0-6.
- */

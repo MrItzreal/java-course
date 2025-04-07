@@ -258,3 +258,57 @@ This document summarizes the use of `javax.swing.JOptionPane` to create simple G
 ## Summary
 
 `JOptionPane` provides a straightforward way to add basic graphical input and output to Java applications, moving beyond the limitations of the text-based console. The key things to remember are that input is always received as a `String` and numerical input requires explicit parsing.
+
+# Java vs. JavaScript Equality Comparison (`==` vs `===`)
+
+## JavaScript: `==` (Loose) vs. `===` (Strict)
+
+JavaScript provides two distinct equality operators:
+
+1.  **`===` (Strict Equality):**
+
+    - Checks for equality of both **value** and **type** _without_ performing any type conversion (coercion).
+    - Example: `7 === 7` is `true`, `7 === "7"` is `false`.
+    - This is generally the **preferred** equality operator in JavaScript to avoid unexpected behavior from type coercion.
+
+2.  **`==` (Loose Equality):**
+    - Checks for equality of **value** _after_ performing type conversion if the operands are of different types.
+    - Example: `7 == 7` is `true`, `7 == "7"` is also `true` (string "7" is coerced to number 7 before comparison).
+    - Can lead to non-intuitive results and is often avoided in favor of `===`.
+
+## Java: The `==` Operator
+
+Java only has the `==` operator for direct equality comparison (there is no `===`). However, the behavior of `==` in Java **depends critically on the type** of operands being compared:
+
+### `==` with Primitive Types
+
+- **Behavior:** Compares the actual **values**.
+- **Applies to:** `int`, `double`, `float`, `long`, `short`, `byte`, `char`, `boolean`.
+- **Example:** If `x` and `y` are primitive types, `x == y` is `true` if and only if they hold the exact same value. `10 == 10` is `true`.
+
+### `==` with Object Types
+
+- **Behavior:** Compares the **memory addresses** (identity). It checks if the two variables refer to the **exact same object instance** in memory.
+- **Applies to:** Any variable holding an object instance (e.g., `String`, `ArrayList`, instances of your own classes).
+- **Example:**
+  - `String s1 = new String("hello");`
+  - `String s2 = new String("hello");`
+  - `String s3 = s1;`
+  - `s1 == s2` is typically `false` because `s1` and `s2` refer to two different `String` objects in memory, even though their contents are the same.
+  - `s1 == s3` is `true` because both `s1` and `s3` point to the exact same object instance.
+
+## Java: Comparing Object Content with `.equals()`
+
+- **Purpose:** To compare the **meaningful content** or **state** of two objects, rather than their memory addresses.
+- **Usage:** You **must** call the `.equals()` method on one object, passing the other object as an argument.
+- **Example:**
+  - Using `s1` and `s2` from the previous example: `s1.equals(s2)` is `true` because the `String` class implements `.equals()` to compare the actual sequence of characters.
+- **Requirement:** For custom classes, you often need to _override_ the default `.equals()` method (inherited from the `Object` class) to define what makes two instances of your class meaningfully equivalent based on their fields.
+
+## Summary of Key Differences
+
+- **JS `===`:** Strict value and type comparison.
+- **JS `==`:** Loose value comparison with type coercion.
+- **Java `==` (Primitives):** Compares **value**. Similar concept to JS `===` when types are the same.
+- **Java `==` (Objects):** Compares **memory address (identity)**. No direct common equivalent in JS (JS compares object _values_/\*_references_ similarly, but the distinction is more pronounced in Java due to `.equals()`).
+- **Java `.equals()`:** Compares **object content/state**. The standard way to check if two distinct objects are meaningfully equivalent in Java. It has no direct operator equivalent in either language.
