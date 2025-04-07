@@ -1,34 +1,21 @@
-import java.util.Scanner;
+import java.util.Random;
 
 public class App {
     public static void main(String[] args) {
-        double x;
-        double y;
-        double z;
+        Random random = new Random();
 
-        Scanner scanner = new Scanner(System.in);
+        int x = random.nextInt(6) + 1;
+        System.out.println(x);
 
-        System.out.println("Enter side x: ");
-        x = scanner.nextDouble();
+        double y = random.nextDouble();
+        System.out.println(y);
 
-        System.out.println("Enter side y: ");
-        y = scanner.nextDouble();
-
-        z = Math.sqrt((x * x) + (y * y));
-        System.out.println("The hypotenuse is: " + z);
-
-        // It's good practice to close your scanner:
-        scanner.close();
+        boolean z = random.nextBoolean();
+        System.out.println(z);
     }
 }
 
 /*
- * "Math." use cases:
- * double z = Math.max(x, y); = max value.
- * double z = Math.min(x, y); = min value.
- * double z = Math.abs(y); = absolute value.
- * double z = Math.sqrt(y); = square root of value.
- * double z = Math.round(x); = rounds value.
- * double z = Math.ceil(x); = rounds up value.
- * double z = Math.floor(x); = rounds down value.
+ * Since numbers start at 0 we add +1,
+ * so we can get a random # from 0-6.
  */
