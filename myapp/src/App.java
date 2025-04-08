@@ -1,19 +1,38 @@
 public class App {
     public static void main(String[] args) {
 
-        // Initial value
-        int benchPress = 300;
+        /*
+         * switch: statements that allows a variable to be tested
+         * for equality against a list of values.
+         */
 
-        if (benchPress == 250) {
-            System.out.println("You are a strong fella!");
-        } else if (benchPress >= 250) {
-            System.out.println("You are built different!");
-        } else if (benchPress >= 180) {
-            System.out.println("You are almost there!");
-        } else if (benchPress <= 100) {
-            System.out.println("You need to get stronger!");
-        } else {
-            System.out.println("You need to press at least 250!");
+        String day = "Tuesday";
+
+        switch (day) {
+            case "Sunday":
+                System.out.println("Today, is Sunday!");
+                break;
+            case "Monday":
+                System.out.println("Today, is Monday!");
+                break;
+            case "Tuesday":
+                System.out.println("Today, is Tuesday!");
+                break;
+            case "Wednesday":
+                System.out.println("Today, is Wednesday!");
+                break;
+            case "Thursday":
+                System.out.println("Today, is Thursday!");
+                break;
+            case "Friday":
+                System.out.println("Today, is Friday!");
+                break;
+            case "Saturday":
+                System.out.println("Today, is Saturday!");
+                break;
+            default:
+                System.out.println("This day does not exist!");
+                break;
         }
     }
 }
