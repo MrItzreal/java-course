@@ -2,10 +2,12 @@ public class App {
     public static void main(String[] args) {
 
         // Initial value
-        int benchPress = 179;
+        int benchPress = 300;
 
         if (benchPress == 250) {
             System.out.println("You are a strong fella!");
+        } else if (benchPress >= 250) {
+            System.out.println("You are built different!");
         } else if (benchPress >= 180) {
             System.out.println("You are almost there!");
         } else if (benchPress <= 100) {
