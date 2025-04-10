@@ -1,26 +1,28 @@
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) {
 
-        // nested loops = a loop inside a loop
-        Scanner scanner = new Scanner(System.in);
-        int rows;
-        int columns;
-        String symbol = "";
+        // array = Stores multiple values in a single variable.
 
-        System.out.println("Enter # of rows: ");
-        rows = scanner.nextInt();
-        System.out.println("Enter # of columns: ");
-        columns = scanner.nextInt();
-        System.out.println("Enter symbol to use: ");
-        symbol = scanner.next();
+        /* Simple way to work with arrays */
+        System.out.println("Phone Brands: ");
+        String[] cellphones = { "Motorola", "iPhone", "Nokia" };
+        cellphones[1] = "BlackBerry";
+        System.out.println(cellphones[2]);
 
-        for (int i = 1; i <= rows; i++) {
-            System.out.println();
-            for (int j = 1; j <= columns; j++) {
-                System.out.print(symbol);
-            }
+        /*
+         * This is another method to work with arrays by first declaring
+         * the amount of elements we would like to have in the array and then
+         * we assign the values.
+         */
+        System.out.println("Car Brands: ");
+        String[] cars = new String[3];
+
+        cars[0] = "Nissan";
+        cars[1] = "Toyota";
+        cars[2] = "Tesla";
+
+        for (int i = 0; i < cars.length; i++) {
+            System.out.println(cars[i]);
         }
     }
 }
