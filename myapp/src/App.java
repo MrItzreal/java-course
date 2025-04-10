@@ -1,36 +1,18 @@
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        String name = "";
+        // for loop = executes a block of code a limited amount of times.
+        System.out.println("Lets count from 0 to 10!");
 
-        // while loop = executes a block of code as long as its's condition remains true
-        while (name.isBlank()) {
-            System.out.print("Enter your name: ");
-            name = scanner.nextLine();
+        for (int i = 0; i <= 10; i++) {
+            System.out.println(i);
         }
 
-        System.out.println("Hello " + name);
-        // It's good practice to close your scanner:
-        scanner.close();
+        System.out.println("Now count to 0 in increments of 2!");
 
-        // while loop with int ex:
-        int count = 10;
-        while (count > 0) {
-            System.out.println("Counting.... " + count);
-            count--;
+        for (int i = 10; i >= 0; i -= 2) {
+            System.out.println(i);
         }
-        System.out.print("The final count is: " + count);
 
-        /*
-         * do loop = executes block of code at least one and then it checks condition
-         * do {
-         * System.out.print("Enter your name: ");
-         * name = scanner.nextLine();
-         * } while (name.isBlank());
-         * System.out.println("Hello " + name);
-         */
     }
 }
