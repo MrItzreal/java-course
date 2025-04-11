@@ -1,52 +1,50 @@
 public class App {
     public static void main(String[] args) {
         /*
-         * String = a reference data type that can store one or more characters.
-         * // Reference data types have access to useful methods.
+         * Wrapper class = Allows to use primitive data types as reference data types.
+         * reference data types contains useful methods that can be used with
+         * collections(ex.ArrayList).
+         * 
+         * //primitives
+         * - boolean
+         * - char
+         * - int
+         * - double
+         * 
+         * //wrapper
+         * - Boolean
+         * - Character
+         * - Integer
+         * - Double
+         * 
+         * autoboxing: The automatic conversion that the Java compiler makes between the
+         * primitive types and their corresponding object wrapper classes.
+         * 
+         * unboxing: The reverse of autoboxing. Automatic conversion of wrapper class to
+         * primitive.
          */
 
-        String name = "Izzy";
+        Boolean a = true;
+        Character b = '@';
+        Integer c = 123;
+        Double d = 3.14;
+        String e = "Izzy";
 
-        // Using the .equals:
-        boolean result = name.equals("Izzy");
-
-        // To avoid case sensitivity:
-        boolean result2 = name.equalsIgnoreCase("izzy");
-
-        // Get the "length" of the string:
-        int result3 = name.length();
-
-        // Returns the char value at the specified index:
-        char result4 = name.charAt(0);
-
-        // Returns a character and returns that index of it:
-        int result5 = name.indexOf("y");
-
-        // Returns true/false if the string is empty:
-        boolean result6 = name.isEmpty();
-
-        // String to Uppercase:
-        String result7 = name.toUpperCase();
-
-        // String to Lowercase:
-        String result8 = name.toLowerCase();
-
-        // Removes the empty space from a string:
-        String result9 = name.trim();
-
-        // Replace a character string with another:
-        String result10 = name.replace("Izzy", "Call Me!");
-
-        System.out.println("String Methods:");
-        System.out.println(".equals: " + result);
-        System.out.println(".equalsIgnoreCase: " + result2);
-        System.out.println(".length: " + result3);
-        System.out.println(".charAt: " + result4);
-        System.out.println(".indexOf: " + result5);
-        System.out.println(".isEmpty: " + result6);
-        System.out.println(".toUpperCase: " + result7);
-        System.out.println(".toLowerCase: " + result8);
-        System.out.println(".trim: " + result9);
-        System.out.println(".replace: " + result10);
+        // Examples of unboxing:
+        if (a == true) {
+            System.out.println("'a' is true!");
+        }
+        if (b == '@') {
+            System.out.println("'b' is true!");
+        }
+        if (c == 123) {
+            System.out.println("'c' is true!");
+        }
+        if (d == 3.14) {
+            System.out.println("'d' is true!");
+        }
+        if (e == "Izzy") {
+            System.out.println("'e' is true!");
+        }
     }
 }
