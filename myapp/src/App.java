@@ -1,52 +1,52 @@
 public class App {
     public static void main(String[] args) {
-
         /*
-         * What is a 2D array? an array of arrays.
-         * 
-         * NOTE: There are different ways to work with arrays. You can either:
-         * 1-) Create a new array using the "new" keyword without initializing it
-         * immediately with values, you use [] to specify its size.
-         * 
-         * 2-) Declare, create, and initialize an array with values in one step.
+         * String = a reference data type that can store one or more characters.
+         * // Reference data types have access to useful methods.
          */
 
-        // Dealing with arrays with method "1".
-        String[][] cars = new String[3][3];
+        String name = "Izzy";
 
-        // cars [row] [column]
-        cars[0][0] = "Camaro";
-        cars[0][1] = "Corvette";
-        cars[0][2] = "Silverado";
-        cars[1][0] = "Mustang";
-        cars[1][1] = "Ranger";
-        cars[1][2] = "F-150";
-        cars[2][0] = "Ferrari";
-        cars[2][1] = "Lambo";
-        cars[2][2] = "Nissan";
+        // Using the .equals:
+        boolean result = name.equals("Izzy");
 
-        // Nested loop
-        for (int i = 0; i < cars.length; i++) {
-            System.out.println();
-            for (int j = 0; j < cars[i].length; j++) {
-                System.out.print(cars[i][j] + " ");
-            }
-        }
+        // To avoid case sensitivity:
+        boolean result2 = name.equalsIgnoreCase("izzy");
 
-        System.out.println();
+        // Get the "length" of the string:
+        int result3 = name.length();
 
-        // Dealing with arrays with method "2".
-        String[][] foods = {
-                { "Pizza", "Tacos", "Sushi" },
-                { "Burger", "HotDog", "Sandwich" },
-                { "Oatmeal", "Soup", "Pasta" } };
+        // Returns the char value at the specified index:
+        char result4 = name.charAt(0);
 
-        // Nested loop
-        for (int i = 0; i < foods.length; i++) {
-            System.out.println();
-            for (int k = 0; k < foods[i].length; k++) {
-                System.out.print(foods[i][k] + " ");
-            }
-        }
+        // Returns a character and returns that index of it:
+        int result5 = name.indexOf("y");
+
+        // Returns true/false if the string is empty:
+        boolean result6 = name.isEmpty();
+
+        // String to Uppercase:
+        String result7 = name.toUpperCase();
+
+        // String to Lowercase:
+        String result8 = name.toLowerCase();
+
+        // Removes the empty space from a string:
+        String result9 = name.trim();
+
+        // Replace a character string with another:
+        String result10 = name.replace("Izzy", "Call Me!");
+
+        System.out.println("String Methods:");
+        System.out.println(".equals: " + result);
+        System.out.println(".equalsIgnoreCase: " + result2);
+        System.out.println(".length: " + result3);
+        System.out.println(".charAt: " + result4);
+        System.out.println(".indexOf: " + result5);
+        System.out.println(".isEmpty: " + result6);
+        System.out.println(".toUpperCase: " + result7);
+        System.out.println(".toLowerCase: " + result8);
+        System.out.println(".trim: " + result9);
+        System.out.println(".replace: " + result10);
     }
 }
