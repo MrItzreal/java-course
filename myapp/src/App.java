@@ -1,32 +1,43 @@
-import java.util.ArrayList;
-
 public class App {
     public static void main(String[] args) {
         /*
-         * for-each loop = traversing technique to iterate through the
-         * elements in an array/collection. Requires less steps,
-         * more readable but less flexible compared to a for-loop.
-         * 
-         * NOTE:
-         * ':'= the word in.
-         * for-each loops are also referred as enhanced for-loops.
+         * method: a block of code that is executed
+         * whenever it is called upon.
          */
 
-        // 1st example:
-        String[] nissan = { "rogue", "pathfinder", "kick", "murano" };
-        for (String i : nissan) {
-            System.out.println(i);
-        }
+        int x = 3;
+        int y = 4;
 
-        // 2nd example:
-        ArrayList<String> animals = new ArrayList<String>();
-        animals.add("cat");
-        animals.add("dog");
-        animals.add("bird");
-        animals.add("rat");
-
-        for (String i : animals) {
-            System.out.println(i);
-        }
+        int z = add(x, y);
+        System.out.println(z);
     }
+
+    static int add(int x, int y) {
+        int z = x + y;
+        return z;
+    }
+
 }
+
+/*
+ * public class App {
+ * public static void main(String[] args) {
+ * /*
+ *
+ * String name = "Izzy";
+ * int age = 21;
+ * 
+ * hello(name, age);
+ * }
+ * 
+ * // Do not confused an argument with a param.
+ * // the "name" "age" below are params and as long as it
+ * // matches the pattern of the above name, age the argument
+ * // will print "Izzy" and "21":
+ * static void hello(String name, int age) {
+ * System.out.println("Hello " + name);
+ * System.out.println("You are " + age + " years old");
+ * 
+ * }
+ * }
+ */
