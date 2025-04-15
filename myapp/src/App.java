@@ -1,42 +1,32 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
-        // 2D ArrayList: a dynamic list of lists
-        // You can change the size of these lists during runtime
-        // To retrieve an element we use .get()
+        /*
+         * for-each loop = traversing technique to iterate through the
+         * elements in an array/collection. Requires less steps,
+         * more readable but less flexible compared to a for-loop.
+         * 
+         * NOTE:
+         * ':'= the word in.
+         * for-each loops are also referred as enhanced for-loops.
+         */
 
-        ArrayList<ArrayList<String>> groceryList = new ArrayList();
+        // 1st example:
+        String[] nissan = { "rogue", "pathfinder", "kick", "murano" };
+        for (String i : nissan) {
+            System.out.println(i);
+        }
 
-        ArrayList<String> bakeryList = new ArrayList();
-        bakeryList.add("pasta");
-        bakeryList.add("garlic bread");
-        bakeryList.add("donuts");
+        // 2nd example:
+        ArrayList<String> animals = new ArrayList<String>();
+        animals.add("cat");
+        animals.add("dog");
+        animals.add("bird");
+        animals.add("rat");
 
-        // System.out.println(bakeryList.get(0));
-
-        ArrayList<String> produceList = new ArrayList();
-        produceList.add("tomatoes");
-        produceList.add("zucchini");
-        produceList.add("peppers");
-
-        // System.out.println(produceList.get(0));
-
-        ArrayList<String> drinksList = new ArrayList();
-        drinksList.add("soda");
-        drinksList.add("coffee");
-
-        // System.out.println(drinksList.get(0));
-
-        // We are using a double array to print every list within the groceryList
-        groceryList.add(bakeryList);
-        groceryList.add(produceList);
-        groceryList.add(drinksList);
-
-        // Gets one of the arrays
-        System.out.println(groceryList.get(1));
-
-        // Gets both the array and the specific element you want
-        System.out.println(groceryList.get(1).get(1));
+        for (String i : animals) {
+            System.out.println(i);
+        }
     }
 }
