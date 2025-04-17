@@ -1,15 +1,13 @@
 public class App {
     public static void main(String[] args) {
         /*
-         * constructor = special method that is called when an object is
-         * 'instantiated' fancy word for 'created'.
+         * 'Local' & 'Global' variables
+         * 
+         * local = declared inside a method and visible only to that method.
+         * 
+         * global = declared outside a method, but within a class visible to
+         * all parts of a class.
          */
-        Human human1 = new Human("Izzy", 49, 70);
-        Human human2 = new Human("Bro", 92, 30);
-
-        System.out.println(human1.name);
-        System.out.println(human2.name);
-        human1.eat();
-        human2.drink();
+        DiceRoller diceRoller = new DiceRoller();
     }
 }
