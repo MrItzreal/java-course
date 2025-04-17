@@ -1,15 +1,26 @@
 public class App {
     public static void main(String[] args) {
-        /*
-         * 'final' keyword: anything declared as final cannot
-         * be changed nor updated later in the program.
-         * 
-         * A common practice when using final not mandatory but common practice
-         * the variable name will be in uppercased.
-         */
+        Car myCar1 = new Car();
+        Car myCar2 = new Car();
 
-        final double PI = 3.14159;
-        // PI = 4; // PI will not update to 4 because is final.
-        System.out.println(PI);
+        System.out.println(myCar1.make);
+        System.out.println(myCar1.model);
+
+        // myCar1.drive();
+        // myCar1.brake();
+
+        System.out.println();
+
+        System.out.println(myCar2.make);
+        System.out.println(myCar2.model);
+
     }
 }
+
+/*
+ * Object Oriented Programming aka OOP.
+ * 
+ * object: an instance of a class that may contain attributes and methods.
+ * example: (phone, desk, computer, coffee cup).
+ * 
+ */
