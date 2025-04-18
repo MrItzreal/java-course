@@ -1,17 +1,23 @@
 public class App {
     public static void main(String[] args) {
         /*
-         * overloaded constructors = multiple constructors within a class
-         * with the same name but have different parameters.
+         * toString() = special method that all objects inherit,
+         * that returns a string that "textually represents" an object.
          * 
-         * name + parameters = signature.
+         * NOTES:
+         * - Can be used both implicitly and explicitly.
+         * - You can override the toString method to return a
+         * a string representation of all of the atributes of an object.
          */
-        Pizza pizza = new Pizza();
 
-        System.out.println("Here are the ingredients of your pizza: ");
-        System.out.println(pizza.bread);
-        System.out.println(pizza.sauce);
-        System.out.println(pizza.cheese);
-        System.out.println(pizza.topping);
+        Car car = new Car();
+
+        // Explicit use of the toString method.
+        System.out.println(car.toString());
+
+        System.out.println("===OR====");
+
+        // implicit use of the toString method.
+        System.out.println(car);
     }
 }
