@@ -1,13 +1,17 @@
 public class App {
     public static void main(String[] args) {
         /*
-         * 'Local' & 'Global' variables
+         * overloaded constructors = multiple constructors within a class
+         * with the same name but have different parameters.
          * 
-         * local = declared inside a method and visible only to that method.
-         * 
-         * global = declared outside a method, but within a class visible to
-         * all parts of a class.
+         * name + parameters = signature.
          */
-        DiceRoller diceRoller = new DiceRoller();
+        Pizza pizza = new Pizza();
+
+        System.out.println("Here are the ingredients of your pizza: ");
+        System.out.println(pizza.bread);
+        System.out.println(pizza.sauce);
+        System.out.println(pizza.cheese);
+        System.out.println(pizza.topping);
     }
 }
