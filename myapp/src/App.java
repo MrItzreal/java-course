@@ -1,12 +1,17 @@
 public class App {
     public static void main(String[] args) {
+        /*
+         * static: modifier. A single copy of a variable/method is created and shared.
+         * 
+         * The class "owns" the static member.
+         */
 
-        Garage garage = new Garage();
-        Car car1 = new Car("BWM");
-        Car car2 = new Car("Nissan");
+        Friend friend1 = new Friend("Pokemon");
+        Friend friend2 = new Friend("Ozzi");
+        Friend friend3 = new Friend("Momo");
+        Friend friend4 = new Friend("Lala");
 
-        garage.park(car1);
-        garage.park(car2);
 
+        Friend.displayFriends();
     }
 }
