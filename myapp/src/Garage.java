@@ -1,3 +1,5 @@
+import inheritance.Car;
+
 public class Garage {
 
   void park(Car car) {
