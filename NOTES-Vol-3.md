@@ -155,3 +155,10 @@ class Configuration { // Default access class
     }
   }
   ```
+
+### In Summary:
+
+- `public`: Everywhere.
+- `protected`: Same package + Subclasses in different packages.
+- `(Default/Package-Private) (no keyword)`: Same package only.
+- `private`: Declaring class only.
