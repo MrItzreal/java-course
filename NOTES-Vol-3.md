@@ -48,3 +48,110 @@ class SubclassName extends SuperclassName {
     // Can also add its own specific fields and methods
 }
 ```
+
+# Java Access Modifiers
+
+Access modifiers in Java determine the visibility and accessibility of classes\*, fields, methods, and constructors. They control where these parts of your code can be accessed from.
+
+_\*Note: Top-level classes (classes not nested inside another) can only be `public` or default (package-private)._
+
+---
+
+## `public`
+
+- **Visibility:** Accessible from **any** other class in **any** package. Least restrictive.
+- **Example:**
+
+  ```java
+  // File: Animal.java
+  public class Animal {
+    public void makeSound() {
+        System.out.println("Animal sound");
+    }
+  }
+  // File: Main.java
+  public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        a.makeSound(); // This works because makeSound() is public
+    }
+  }
+  ```
+
+---
+
+## `protected`
+
+- **Visibility:** Accessible within the **same package** AND by **subclasses** even if they are in different packages.
+- **Example:**
+
+  ```java
+  // File: Animal.java (in package animals)
+  package animals;
+
+  public class Animal {
+        protected void eat() {
+            System.out.println("Animal eats");
+        }
+  }
+
+  // File: Dog.java (in package pets)
+  package pets;
+  import animals.Animal;
+
+  public class Dog extends Animal {
+    public void doSomething() {
+        eat(); // Works because Dog is a subclass of Animal
+    }
+  }
+  ```
+
+---
+
+## Default (Package-Private)
+
+- **Visibility:** Accessible **only** by classes within the **same package**. This is the default level if no modifier is specified.
+- **Example:**
+
+```java
+// In package: com.example.core
+package com.example.core;
+
+class Configuration { // Default access class
+    String settingsFile = "config.properties"; // Default access field
+
+    void loadSettings() { // Default access method
+        System.out.println("Loading settings from " + settingsFile);
+    }
+}
+// Configuration class, settingsFile field, and loadSettings() method
+// are ONLY accessible by other classes within the com.example.core package.
+```
+
+---
+
+## `private`
+
+- **Visibility:** Accessible **only** from within the **declaring class** itself. Most restrictive.
+- **Example:**
+
+  ```java
+  // File: Animal.java
+  public class Animal {
+    private void sleep() {
+        System.out.println("Animal sleeps");
+    }
+
+    public void test() {
+        sleep(); // Allowed, because it's within the same class
+    }
+  }
+
+  // File: Main.java
+  public class Main {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+  // a.sleep(); Error! sleep() is private and not visible here
+    }
+  }
+  ```
