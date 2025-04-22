@@ -1,4 +1,4 @@
-package Forgot_to_make_file;
+package forgot_to_make_file;
 import inheritance.Car;
 
 public class Garage {
