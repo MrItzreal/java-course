@@ -148,3 +148,58 @@ The Java Virtual Machine continues to execute threads until one of the following
 - thread is a low priority thread that runs in the background to perform tasks such as garbage collection.
 - JVM terminates itself when all user threads (non-daemon threads) finish their execution.
   **"daemon" thread**.
+
+# Java Multithreading Basics
+
+## What is Multithreading?
+
+- **Multithreading** is the process of executing multiple **threads** (smaller sequences of program execution) simultaneously within a single program.
+
+## Benefits and Characteristics
+
+- **CPU Utilization:** Helps achieve maximum utilization of the CPU by allowing different tasks to run concurrently or in parallel.
+- **Independence:** Threads are generally independent. The execution (or pausing) of one thread does not typically affect the execution of other threads.
+- **Exception Isolation:** An uncaught exception thrown in one thread will usually terminate only that thread; it will not interrupt other threads in the application unless designed to do so.
+- **Responsiveness:** Can keep applications responsive, especially those with GUIs, by performing long-running tasks in background threads.
+
+## Common Use Cases
+
+Multithreading is useful in various scenarios, including:
+
+- Serving multiple clients concurrently (e.g., in web servers or network applications).
+- Handling multiple players or complex background processes in games.
+- Performing computationally intensive or I/O-bound tasks in parallel when these tasks are mutually independent.
+
+## Creating Threads in Java
+
+There are two primary ways to create a thread in Java:
+
+**1. Extending the `Thread` Class**
+
+- Create a new class that **inherits** from `java.lang.Thread`.
+- **Override** the `run()` method in your subclass. The code inside `run()` is what the new thread will execute.
+- Create an instance of your subclass and call its `start()` method to begin execution.
+
+_Instantiation Example (from notes):_
+
+```java
+  // Assuming MyThread extends Thread and overrides run()
+  MyThread thread1 = new MyThread();
+  // To actually run: thread1.start();
+```
+
+**2. Implementing the `Runnable` Interface**
+
+- Create a new class that implements the `java.lang.Runnable interface`.
+- Implement the `run()` method required by the interface. This method contains the code the thread will execute.
+- Create an instance of your `Runnable` implementation.
+- Create an instance of the `java.lang.Thread` class, passing your `Runnable` object to the `Thread` constructor.
+- Call the `start()` method on the `Thread` object.
+- Note: This approach is often preferred as it allows your class to extend a different class if needed (Java doesn't support multiple class inheritance) and promotes better separation between the task (`Runnable`) and the execution mechanism (`Thread`).
+
+```java
+ // Assuming MyRunnable implements Runnable and implements run()
+  MyRunnable runnable1 = new MyRunnable();
+  Thread thread2 = new Thread(runnable1);
+  // To actually run: thread2.start();
+```
