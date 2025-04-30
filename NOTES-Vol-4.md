@@ -113,3 +113,38 @@ Generics allow you to write code that can work with different data types while p
 **Relevance to Spring Boot:**
 
 Understanding serialization/deserialization, particularly **JSON serialization**, is crucial for Spring Boot development. You'll constantly deal with converting Java objects (like DTOs - Data Transfer Objects) to JSON for API responses and deserializing incoming JSON requests back into Java objects.
+
+# Java Threads: Basic Concepts
+
+## What is a Thread?
+
+- A **thread** represents a single thread of execution within a program. You can think of it conceptually like a virtual CPU dedicated to executing a sequence of instructions.
+- The Java Virtual Machine (JVM) allows a single application to have **multiple threads** running concurrently.
+
+## Concurrency and Parallelism
+
+- Multiple threads allow different parts of your code to be executed seemingly simultaneously (**concurrency**).
+- On systems with multiple CPU cores, threads can run truly in **parallel** with the main application thread and each other, performing tasks at the same time.
+
+## Thread Priority
+
+- Each thread in Java has a **priority** level assigned to it.
+- Threads with a higher priority are generally given preference for execution time by the thread scheduler compared to threads with a lower priority. (Note: The exact behavior can depend on the operating system's scheduler).
+
+## JVM Execution and Threads
+
+The Java Virtual Machine continues to execute threads until one of the following conditions occurs:
+
+1.  The `exit` method of the `Runtime` class has been called (which forcibly terminates the JVM).
+2.  All **user threads** (non-daemon threads) in the application have completed their execution (have "died").
+
+## The "main" Thread
+
+- When a JVM starts up, it creates an initial thread responsible for executing the `main` method of your application.
+- This initial thread is commonly referred to as the **"main" thread**.
+
+## The "daemon" Thread
+
+- thread is a low priority thread that runs in the background to perform tasks such as garbage collection.
+- JVM terminates itself when all user threads (non-daemon threads) finish their execution.
+  **"daemon" thread**.
